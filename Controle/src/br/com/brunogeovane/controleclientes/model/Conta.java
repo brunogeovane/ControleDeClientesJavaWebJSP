@@ -9,8 +9,19 @@ public class Conta {
 	private int numero;
 	private int saldo;
 	private int situação;
+
+	public Conta() {
+		// criado pro inserts de cliente
+	}
 	
-	
+	public Conta(int idCliente, int tipoCliente, int idConta, int tipoConta) {
+		// criado para listar
+		this.idCliente = idCliente;
+		this.idConta = idConta;
+		this.tipoCliente = tipoCliente;
+		this.tipoConta = tipoConta;
+	}
+
 	public int getTipoConta() {
 		return tipoConta;
 	}

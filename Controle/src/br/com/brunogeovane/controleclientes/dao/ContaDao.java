@@ -38,6 +38,34 @@ public class ContaDao {
 		}
 
 	}
-
+	public List<Conta> listarContas() {
+		ArrayList<Conta> resultadoConsulta = new ArrayList<Conta>();
+		String sql = "select * from Conta";
+		
+		try {
+			stmt = conexao.prepareStatement(sql);
+			ResultSet rs = stmt.executeQuery();
+			
+			while (rs.next()) {
+				Conta conta = new Conta (rs.getInt("idConta"), rs.getInt("tipoConta"), rs.getInt("idCliente"), rs.getInt("tipoCliente"));
+				resultadoConsulta.add(conta);
+			}
+			int CidCliente = rs.getInt("idCliente");
+			int CtipoCliente = rs.getInt("tipoCliente");
+			
+			String sql1 = "select * from ClienteFisico, ClienteJuridico where idCliente = CidCliente and tipoCliente = CtipoCliente";
+			stmt = conexao.prepareStatement(sql1);
+			ResultSet rs1 = stmt.executeQuery();
+			
+			while (rs1.next()) {
+				Conta conta = new Conta (rs1.getString("nome"));
+				resultadoConsulta.add(conta);
+			}
+			stmt.close();
+			return resultadoConsulta;
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+	}
 	
 }
