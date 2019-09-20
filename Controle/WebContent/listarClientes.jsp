@@ -66,48 +66,7 @@ library_add
     </ul>
   </div>
 </nav>
-
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="index.jsp"><i class="material-icons">
-power_settings_new
-</i>Controle de Clientes</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Alterna navegação">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" href="#"><i class="material-icons">
-build
-</i>Controle Contas<span class="sr-only">(Página atual)</span></a>
-      </li>
-	    
-	    <li class="nav-item">
-        <a class="nav-link" href="sistema?logica=ListarClientes"><i class="material-icons">
-build
-</i>Lista de Clientes<span class="sr-only">(Página atual)</span></a>
-      </li>
-	    
-	    
-      <li class="nav-item">
-        <a class="nav-link" href="#"><i class="material-icons">
-library_add
-</i>Nova Conta</a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="material-icons">
-library_add
-</i>Novo Cliente
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="FormFisico.jsp">Fisico</a>
-          <a class="dropdown-item" href="FormJuridico.jsp">Juridico</a>
-        </div>
-      </li>
-    </ul>
-  </div>
-</nav><br>
+<br>
 
 	<h4><i class="material-icons">
 sd_storage
