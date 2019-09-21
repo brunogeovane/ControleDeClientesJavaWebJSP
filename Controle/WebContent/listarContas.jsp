@@ -39,9 +39,9 @@ scatter_plot
 </i>Conta
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="desativadas.jsp">Controle</a>
+          <a class="dropdown-item" href="#.jsp">Controle</a>
           <a class="dropdown-item" href="FormConta.jsp">Criar Conta</a>
-          <a class="dropdown-item" href="desativadas.jsp">Desativadas</a>
+          <a class="dropdown-item" href="#.jsp">Desativadas</a>
         </div>
       </li>
 	    
@@ -51,7 +51,6 @@ build
 </i>Lista de Clientes<span class="sr-only">(Página atual)</span></a>
       </li>
 	    
-	
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="material-icons">
@@ -68,14 +67,18 @@ library_add
 </nav>
 <br>
 
-	<h4><i class="material-icons">
-sd_storage
-</i>Clientes Cadastradas</h4>
+	<h4><i class="material-icons text-info">
+table_chart</i>Contas Cadastradas</h4>
 	<table class="table table-striped">
 		<tr>
 			<td>Identificação</td>
-			<td>Tipo de Cliente</td>
 			<td>Nome</td>
+			<td><i class="material-icons">
+filter_9_plus
+</i>Número</td>
+			<td><i class="material-icons">
+monetization_on
+</i>Saldo</td>
 			<td><i class="material-icons">
 compare_arrows
 </i></td>
@@ -88,8 +91,11 @@ cancel_presentation
 			for (Conta c : contas) {
 				out.println("<tr>");
 				out.println("<td>" + c.getIdConta() + "</td>");
-				out.println("<td><a type='button' class='btn btn-warning'>editar</button></td>");
-				out.println("<td><a type='button' class='btn btn-danger'>deletar</button></td>");
+				out.println("<td>" + c.getTipoCliente() + "</td>");
+				out.println("<td>" + c.getNumero() + "</td>");
+				out.println("<td>" + c.getSaldo() + "</td>");
+				out.println("<td><a type='button' class='btn btn-primary'>Depositar</button></td>");
+				out.println("<td><a type='button' class='btn btn-danger'>Desativar</button></td>");
 				out.println("</tr>");
 			}
 		%>

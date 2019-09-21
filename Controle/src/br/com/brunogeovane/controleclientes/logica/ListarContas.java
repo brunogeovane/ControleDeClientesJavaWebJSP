@@ -21,5 +21,6 @@ public class ListarContas implements Logica {
 		req.setAttribute("lista", lista);
 
 		return "/listarContas.jsp";
+		
 	}
 }

@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.brunogeovane.controleclientes.conexao.Conexao;
+import br.com.brunogeovane.controleclientes.model.Cliente;
 import br.com.brunogeovane.controleclientes.model.Conta
 ;
 
@@ -35,36 +36,32 @@ public class ContaDao {
 		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}
-	}}
-	
-	//public List<Conta> listarContas() {
-		//ArrayList<Conta> resultadoConsulta = new ArrayList<Conta>();
-	//	String sql = "select * from Conta";
-		
-		//try {
-			//stmt = conexao.prepareStatement(sql);
-			//ResultSet rs = stmt.executeQuery();
+	}
+	public List<Conta> listarContas() {
+		ArrayList<Conta> resultadoConsulta = new ArrayList<Conta>();
+		String sql = "SELECT * FROM Conta";
+		String sql1 = "SELECT * FROM Conta";
+		try {
+			stmt = conexao.prepareStatement(sql);
+			ResultSet rs = stmt.executeQuery();
 			
-		//	while (rs.next()) {
-			//	Conta conta = new Conta (rs.getInt("idConta"), rs.getInt("tipoConta"), rs.getInt("idCliente"), rs.getInt("tipoCliente"), rs.getString("nome"));
-				//resultadoConsulta.add(conta);
-		//	}
-		//	int CidCliente = rs.getInt("idCliente");
-		//	int CtipoCliente = rs.getInt("tipoCliente");
+			while (rs.next()) {
+				Conta conta = new Conta (rs.getInt("idConta"), rs.getInt("numero"), rs.getInt("saldo"));
+				resultadoConsulta.add(conta);
+			}
+			stmt = conexao.prepareStatement(sql1);
+			ResultSet rs1 = stmt.executeQuery();
 			
-		//	String sql1 = "select * from ClienteFisico, ClienteJuridico where idCliente = CidCliente and tipoCliente = CtipoCliente";
-		//	stmt = conexao.prepareStatement(sql1);
-		//	ResultSet rs1 = stmt.executeQuery();
-		//	
-		//	while (rs1.next()) {
-		//		Conta conta = new Conta (rs1.getInt("idConta"), rs1.getInt("tipoConta"), rs1.getInt("idCliente"), rs1.getInt("tipoCliente"), rs1.getString("nome"));
-		//		resultadoConsulta.add(conta);
-		//	}
-		//	stmt.close();
-			//return resultadoConsulta;
-	//	} catch (Exception e) {
-		//	throw new RuntimeException(e);
-	//	}
-	//}
-	
+			while (rs1.next()) {
+				Conta conta = new Conta (rs1.getInt("idConta"), rs1.getInt("numero"),rs1.getInt("saldo") );
+				resultadoConsulta.add(conta);
+			}
+			stmt.close();
+			return resultadoConsulta;
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+	}
+
+	}
 
