@@ -46,14 +46,14 @@ public class ContaDao {
 			ResultSet rs = stmt.executeQuery();
 			
 			while (rs.next()) {
-				Conta conta = new Conta (rs.getInt("idConta"), rs.getInt("numero"), rs.getInt("saldo"));
+				Conta conta = new Conta (rs.getInt("idConta"), rs.getInt("numero"), rs.getInt("saldo"), rs.getInt("idCliente"), rs.getInt("tipoConta"));
 				resultadoConsulta.add(conta);
 			}
 			stmt = conexao.prepareStatement(sql1);
 			ResultSet rs1 = stmt.executeQuery();
 			
 			while (rs1.next()) {
-				Conta conta = new Conta (rs1.getInt("idConta"), rs1.getInt("numero"),rs1.getInt("saldo") );
+				Conta conta = new Conta (rs1.getInt("idConta"), rs1.getInt("numero"),rs1.getInt("saldo"), rs1.getInt("idCliente"), rs1.getInt("tipoConta"));
 				resultadoConsulta.add(conta);
 			}
 			stmt.close();

@@ -8,9 +8,9 @@ public class Conta {
 	private int numero;
 	private int saldo;
 	private int situação;
-	//private String nome;
+	private String nome;
 	
-	public Conta(int idConta, int numero, int saldo) {
+	public Conta(int idConta, int numero, int saldo, int idCliente, int tipoConta) {
 		 //criado para listar
 	this.idCliente = idCliente;
     this.idConta = idConta;
@@ -18,7 +18,6 @@ public class Conta {
 	this.tipoConta = tipoConta;
 	this.numero = numero;
 	this.saldo = saldo;
-	//this.setNome(nome);
 			}
 	public Conta() {
 		// criado pro inserts da conta
@@ -67,6 +66,13 @@ public class Conta {
 	public void setIdConta(int idConta) {
 		this.idConta = idConta;
 	}
+	public String getNome() {
+		return nome;
+	}
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
 
 	
 	

@@ -72,6 +72,7 @@ table_chart</i>Contas Cadastradas</h4>
 	<table class="table table-striped">
 		<tr>
 			<td>Identificação</td>
+			<td>Tipo</td>
 			<td>Nome</td>
 			<td><i class="material-icons">
 filter_9_plus
@@ -91,7 +92,8 @@ cancel_presentation
 			for (Conta c : contas) {
 				out.println("<tr>");
 				out.println("<td>" + c.getIdConta() + "</td>");
-				out.println("<td>" + c.getTipoCliente() + "</td>");
+				out.println("<td>" + c.getTipoConta() + "</td>");
+				out.println("<td>" + c.getNome() + "</td>");
 				out.println("<td>" + c.getNumero() + "</td>");
 				out.println("<td>" + c.getSaldo() + "</td>");
 				out.println("<td><a type='button' class='btn btn-primary'>Depositar</button></td>");
