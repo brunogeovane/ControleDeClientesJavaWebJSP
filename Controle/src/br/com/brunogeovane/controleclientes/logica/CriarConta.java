@@ -20,12 +20,14 @@ public class CriarConta implements Logica {
 		int tipoCliente = Integer.parseInt(req.getParameter("tipoCliente"));
 		int tipoConta = Integer.parseInt(req.getParameter("tipoConta"));
 		
+		
 		Conta conta = new Conta();
 		conta.setNumero(numero);
 		conta.setSaldo((int) saldo);
 		conta.setIdCliente(idCliente);
 		conta.setTipoCliente(tipoCliente);
 		conta.setTipoConta(tipoConta);
+		
 		
 
 		new ContaDao().inserirConta(conta);

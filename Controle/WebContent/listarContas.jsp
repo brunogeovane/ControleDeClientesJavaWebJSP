@@ -31,10 +31,18 @@ power_settings_new
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" href="#"><i class="material-icons">
-build
-</i>Controle Contas<span class="sr-only">(Página atual)</span></a>
+      
+       <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="material-icons">
+scatter_plot
+</i>Conta
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="desativadas.jsp">Controle</a>
+          <a class="dropdown-item" href="FormConta.jsp">Criar Conta</a>
+          <a class="dropdown-item" href="desativadas.jsp">Desativadas</a>
+        </div>
       </li>
 	    
 	    <li class="nav-item">
@@ -43,12 +51,7 @@ build
 </i>Lista de Clientes<span class="sr-only">(Página atual)</span></a>
       </li>
 	    
-	    
-      <li class="nav-item">
-        <a class="nav-link" href="#"><i class="material-icons">
-library_add
-</i>Nova Conta</a>
-      </li>
+	
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="material-icons">
@@ -62,17 +65,17 @@ library_add
       </li>
     </ul>
   </div>
-</nav><br>
+</nav>
+<br>
 
 	<h4><i class="material-icons">
 sd_storage
-</i>Contas</h4>
+</i>Clientes Cadastradas</h4>
 	<table class="table table-striped">
 		<tr>
-			<td>Identificação da Conta</td>
-			<td>Nome do cliente</td>
-			<td>Número da conta</td>
-			<td>Saldo</td>
+			<td>Identificação</td>
+			<td>Tipo de Cliente</td>
+			<td>Nome</td>
 			<td><i class="material-icons">
 compare_arrows
 </i></td>
@@ -81,15 +84,12 @@ cancel_presentation
 </i></td>
 		</tr>
 		<%
-			List<Conta> conta = (List<Conta>) request.getAttribute("lista");
-			for (Conta c : conta) {
+			List<Conta> contas = (List<Conta>) request.getAttribute("lista");
+			for (Conta c : contas) {
 				out.println("<tr>");
 				out.println("<td>" + c.getIdConta() + "</td>");
-				out.println("<td>" + c.getNome() + "</td>");
-				out.println("<td>" + c.getNumero() + "</td>");
-				out.println("<td>" + c.getSaldo() + "</td>");
 				out.println("<td><a type='button' class='btn btn-warning'>editar</button></td>");
-				out.println("<td><a type='button' class='btn btn-danger'>desativar</button></td>");
+				out.println("<td><a type='button' class='btn btn-danger'>deletar</button></td>");
 				out.println("</tr>");
 			}
 		%>

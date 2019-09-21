@@ -39,9 +39,9 @@ scatter_plot
 </i>Conta
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="desativadas.jsp">Controle</a>
+          <a class="dropdown-item" href="#.jsp">Controle</a>
           <a class="dropdown-item" href="FormConta.jsp">Criar Conta</a>
-          <a class="dropdown-item" href="desativadas.jsp">Desativadas</a>
+          <a class="dropdown-item" href="#.jsp">Desativadas</a>
         </div>
       </li>
 	    

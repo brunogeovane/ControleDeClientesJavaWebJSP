@@ -5,22 +5,18 @@ public class Conta {
 	private int tipoConta;
 	private int idCliente;
 	private int tipoCliente;
-	private String nome;
 	private int numero;
 	private int saldo;
 	private int situação;
-
-	public Conta() {
-		// criado pro inserts de cliente
-	}
 	
-	public Conta(int idCliente, int tipoCliente, int idConta, int tipoConta) {
+	//public Conta(int idCliente, int tipoCliente, int idConta, int tipoConta) {
 		// criado para listar
-		this.idCliente = idCliente;
-		this.idConta = idConta;
-		this.tipoCliente = tipoCliente;
-		this.tipoConta = tipoConta;
-	}
+	//	this.idCliente = idCliente;
+//		this.idConta = idConta;
+//		this.tipoCliente = tipoCliente;
+	//	this.tipoConta = tipoConta;
+		
+//	}
 
 	public int getTipoConta() {
 		return tipoConta;
@@ -33,12 +29,6 @@ public class Conta {
 	}
 	public void setIdCliente(int idCliente) {
 		this.idCliente = idCliente;
-	}
-	public String getNome() {
-		return nome;
-	}
-	public void setNome(String nome) {
-		this.nome = nome;
 	}
 	public int getNumero() {
 		return numero;
@@ -73,6 +63,7 @@ public class Conta {
 	}
 	
 
+	
 	
 }
 
