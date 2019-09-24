@@ -27,17 +27,18 @@ CREATE TABLE Conta (
 	tipoConta int(1),
 	numero INT NOT NULL,
 	saldo DOUBLE,
-    situacao BOOLEAN NOT NULL,
-    IdCliente int,
-    tipoCliente int(1)
+    	situacao BOOLEAN NOT NULL,
+    	IdCliente int,
+    	tipoCliente int(1)
 );
 
 CREATE TABLE Seguro (
-	idSeguro INT PRIMARY KEY NOT NULL,
-	numero INT NOT NULL,
-	tipoConta int(1),
-	valor DOUBLE,
+    idSeguro INT PRIMARY KEY NOT NULL,
+    numero INT NOT NULL,
+    tipoConta int(1),
+    valor DOUBLE,
     situacao BOOLEAN NOT NULL,
-    IdCliente INT
+    IdCliente INT,
+    tipoCliente int(1)
 );
 
