@@ -68,8 +68,7 @@ library_add
 <br>
 
 	<h4><i class="material-icons text-info">
-table_chart</i>Contas Cadastradas</h4>
-<form action="sistema?logica=DesativarConta" method="post">
+table_chart</i>Contas Desativadas</h4>
 	<table class="table table-striped">
 		<tr>
 			<td>Identificação</td>
@@ -81,12 +80,7 @@ filter_9_plus
 			<td><i class="material-icons">
 monetization_on
 </i>Saldo</td>
-			<td><i class="material-icons">
-compare_arrows
-</i></td>
-<td><i class="material-icons">
-compare_arrows
-</i></td>
+			
 <td><i class="material-icons">
 cancel_presentation
 </i></td>
@@ -100,12 +94,10 @@ cancel_presentation
 				out.println("<td>" + c.getNome() + "</td>");
 				out.println("<td>" + c.getNumero() + "</td>");
 				out.println("<td>" + c.getSaldo() + "</td>");
-				out.println("<td><button type='button' class='btn btn-primary'>Sacar</button></td>");
-				out.println("<td><button type='button' class='btn btn-info'>Depositar</button></td>");
-				out.println("<td><button type='submit' value='c.getIdConta()' name='idContae' class='btn btn-danger'>Desativar</button></td>");
+				out.println("<td><a type='button' class='btn btn-primary'>Ativar</button></td>");
 				out.println("</tr>");
 			}
 		%>
-	</table></form>
+	</table>
 </body>
 </html>

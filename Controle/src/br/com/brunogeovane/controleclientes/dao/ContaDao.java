@@ -39,8 +39,8 @@ public class ContaDao {
 	}
 	public List<Conta> listarContas() {
 		ArrayList<Conta> resultadoConsulta = new ArrayList<Conta>();
-		String sql = "SELECT * FROM Conta";
-		String sql1 = "SELECT * FROM Conta";
+		String sql = "SELECT * FROM Conta where situacao = 1";
+		String sql1 = "SELECT * FROM Conta where situacao = 666";
 		try {
 			stmt = conexao.prepareStatement(sql);
 			ResultSet rs = stmt.executeQuery();
