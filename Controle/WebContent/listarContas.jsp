@@ -102,7 +102,7 @@ cancel_presentation
 				out.println("<td>" + c.getSaldo() + "</td>");
 				out.println("<td><button type='button' class='btn btn-primary'>Sacar</button></td>");
 				out.println("<td><button type='button' class='btn btn-info'>Depositar</button></td>");
-				out.println("<td><button type='submit' value='c.getIdConta()' name='idContae' class='btn btn-danger'>Desativar</button></td>");
+				out.println("<td><button type='submit' value='" + c.getIdConta() + "' name='idConta' class='btn btn-danger'>Desativar</button></td>");
 				out.println("</tr>");
 			}
 		%>

@@ -63,5 +63,20 @@ public class ContaDao {
 		}
 	}
 
+	public void desativarConta(Conta conta) {
+		String sql = "UPDATE Conta SET situacao = ? WHERE idConta = ?";
+		try {
+			int desativada = 0;
+			stmt = conexao.prepareStatement(sql);
+			stmt.setInt(1, desativada);
+			stmt.setInt(2, conta.getIdConta());
+			stmt.execute();
+			stmt.close();
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+	}
+	
+
 	}
 
