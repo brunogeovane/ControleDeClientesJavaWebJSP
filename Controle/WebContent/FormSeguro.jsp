@@ -1,3 +1,6 @@
+<%@page import="br.com.brunogeovane.controleclientes.model.Cliente"%>
+<%@page import="java.util.List"%>
+<%@page import="br.com.brunogeovane.controleclientes.dao.ClienteDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -37,22 +40,9 @@ scatter_plot
 </i>Conta
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="sistema?logica=ListarContas">Controle</a>
+          <a class="dropdown-item" href="desativadas.jsp">Controle</a>
           <a class="dropdown-item" href="FormConta.jsp">Criar Conta</a>
-          <a class="dropdown-item" href="sistema?logica=ListarContasDesativadas">Desativadas</a>
-        </div>
-      </li>
-      
-        <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="material-icons">
-scatter_plot
-</i>Seguro
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="sistema?logica=ListarSeguro">Controle</a>
-          <a class="dropdown-item" href="FormSeguro.jsp">Criar Conta</a>
-          <a class="dropdown-item" href="sistema?logica=ListarSegurosDesativadas">Desativadas</a>
+          <a class="dropdown-item" href="desativadas.jsp">Desativadas</a>
         </div>
       </li>
 	    
@@ -77,7 +67,45 @@ library_add
     </ul>
   </div>
 </nav>
+<br>
+	<h3>Cadastro de Seguro</h3><br>
+<form action="sistema?logica=CriarSeguro" method="post">
 
-	
+
+		 <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Número</label>
+    <div class="col-sm-10">
+      <input name="numero" type="text" class="form-control" placeholder="Número da conta">
+    </div>
+  </div>
+  
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Valor</label>
+    <div class="col-sm-10">
+      <input name="valor" type="text" class="form-control" placeholder="00.00">
+    </div>
+  </div>
+		<select name="idCliente" class="form-control form-control-lg">
+		<%
+			List<Cliente> lista = new ClienteDao().listarClientes();
+		
+			for (Cliente cliente : lista) {
+				out.println("<option value='" + cliente.getIdCliente() + "'>" + cliente.getIdCliente() + " - " + cliente.getTipoCliente() + " - " + cliente.getNome() +  "</option>");
+			}
+		%>
+		</select> 
+		<br> <p class="text-danger">Atenção por favor confirme o padrão do Cliente abaixo:</p>
+		<select name="tipoCliente" class="form-control form-control-lg">
+		<%
+			List<Cliente> lista2 = new ClienteDao().listarClientes();
+		
+			for (Cliente cliente : lista) {
+				out.println("<option value='" + cliente.getTipoCliente() + "'>" + cliente.getIdCliente() + " - " + cliente.getTipoCliente() +"</option>");
+			}
+		%>
+		</select>
+<br>		
+		<center><input type="submit" class="btn btn-dark" value="Criar Seguro"></center>
+	</form>
 </body>
 </html>

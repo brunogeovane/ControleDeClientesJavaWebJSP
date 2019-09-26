@@ -33,9 +33,8 @@ CREATE TABLE Conta (
 );
 
 CREATE TABLE Seguro (
-    idSeguro INT PRIMARY KEY NOT NULL,
+    idSeguro INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     numero INT NOT NULL,
-    tipoConta int(1),
     valor DOUBLE,
     situacao BOOLEAN NOT NULL,
     IdCliente INT,
