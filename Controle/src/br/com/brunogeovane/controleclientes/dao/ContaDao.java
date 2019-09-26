@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.brunogeovane.controleclientes.conexao.Conexao;
-import br.com.brunogeovane.controleclientes.model.Cliente;
 import br.com.brunogeovane.controleclientes.model.Conta
 ;
 

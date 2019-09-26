@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.brunogeovane.controleclientes.conexao.Conexao;
+import br.com.brunogeovane.controleclientes.model.Conta;
 import br.com.brunogeovane.controleclientes.model.Seguro;
 
 public class SeguroDao {
@@ -35,24 +36,23 @@ public class SeguroDao {
 		}
 	}
 
-	public List<Seguro> listarContas() {
+	public List<Seguro> listarSeguros() {
 		ArrayList<Seguro> resultadoConsulta = new ArrayList<Seguro>();
-		String sql = "SELECT * FROM Conta";
-		String sql1 = "SELECT * FROM Conta";
+		String sql = "SELECT * FROM Seguro where situacao = 1";
+		String sql1 = "SELECT * FROM Seguro where situacao = 666";
 		try {
 			stmt = conexao.prepareStatement(sql);
 			ResultSet rs = stmt.executeQuery();
 			
 			while (rs.next()) {
-				Seguro conta = new seguro (rs.getInt("idConta"), rs.getInt("numero"), rs.getInt("saldo"), rs.getInt("idCliente"), rs.getInt("tipoConta"));
-				resultadoConsulta.add(conta);
+				Seguro seguro = new Seguro (rs.getInt("idSeguro"), rs.getInt("numero"), rs.getInt("valor"), rs.getInt("idCliente"), rs.getInt("tipoCliente"));
+				resultadoConsulta.add(seguro);
 			}
 			stmt = conexao.prepareStatement(sql1);
 			ResultSet rs1 = stmt.executeQuery();
-			
 			while (rs1.next()) {
-				Conta conta = new Conta (rs1.getInt("idConta"), rs1.getInt("numero"),rs1.getInt("saldo"), rs1.getInt("idCliente"), rs1.getInt("tipoConta"));
-				resultadoConsulta.add(conta);
+				Seguro seguro = new Seguro (rs.getInt("idSeguro"), rs.getInt("numero"), rs.getInt("valor"), rs.getInt("idCliente"), rs.getInt("tipoCliente"));
+				resultadoConsulta.add(seguro);
 			}
 			stmt.close();
 			return resultadoConsulta;
@@ -61,5 +61,62 @@ public class SeguroDao {
 		}
 	}
 
+	public void desativarSeguro(Seguro seguro) {
+		// TODO Auto-generated method stub
+		String sql = "UPDATE Seguro SET situacao = ? WHERE idSeguro = ?";
+		try {
+			int desativada = 0;
+			stmt = conexao.prepareStatement(sql);
+			stmt.setInt(1, desativada);
+			stmt.setInt(2, seguro.getIdSeguro());
+			stmt.execute();
+			stmt.close();
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+		
 	}
 
+	public void ativarSeguro(Seguro seguro) {
+		// TODO Auto-generated method stub
+		String sql = "UPDATE Seguro SET situacao = ? WHERE idSeguro = ?";
+		try {
+			int desativada = 1;
+			stmt = conexao.prepareStatement(sql);
+			stmt.setInt(1, desativada);
+			stmt.setInt(2, seguro.getIdSeguro());
+			stmt.execute();
+			stmt.close();
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+		
+	}
+
+	public List<Seguro> listarSegurosDesativadas() {
+		ArrayList<Seguro> resultadoConsulta = new ArrayList<Seguro>();
+		String sql = "SELECT * FROM Seguro where situacao = 0";
+		String sql1 = "SELECT * FROM Seguro where situacao = 666";
+		try {
+			stmt = conexao.prepareStatement(sql);
+			ResultSet rs = stmt.executeQuery();
+			
+			while (rs.next()) {
+				Seguro seguro = new Seguro (rs.getInt("idSeguro"), rs.getInt("numero"), rs.getInt("valor"), rs.getInt("idCliente"), rs.getInt("tipoCliente"));
+				resultadoConsulta.add(seguro);
+			}
+			stmt = conexao.prepareStatement(sql1);
+			ResultSet rs1 = stmt.executeQuery();
+			while (rs1.next()) {
+				Seguro seguro = new Seguro (rs.getInt("idSeguro"), rs.getInt("numero"), rs.getInt("valor"), rs.getInt("idCliente"), rs.getInt("tipoCliente"));
+				resultadoConsulta.add(seguro);
+			}
+			stmt.close();
+			return resultadoConsulta;
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+	}
+	}
+
+	

@@ -1,3 +1,5 @@
+<%@page import="java.util.List"%>
+<%@page import="br.com.brunogeovane.controleclientes.model.Seguro"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -37,22 +39,9 @@ scatter_plot
 </i>Conta
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="sistema?logica=ListarContas">Controle</a>
+          <a class="dropdown-item" href="#.jsp">Controle</a>
           <a class="dropdown-item" href="FormConta.jsp">Criar Conta</a>
-          <a class="dropdown-item" href="sistema?logica=ListarContasDesativadas">Desativadas</a>
-        </div>
-      </li>
-      
-        <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="material-icons">
-scatter_plot
-</i>Seguro
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="sistema?logica=ListarSeguros">Controle</a>
-          <a class="dropdown-item" href="FormSeguro.jsp">Criar Conta</a>
-          <a class="dropdown-item" href="sistema?logica=ListarSegurosDesativadas">Desativadas</a>
+          <a class="dropdown-item" href="#.jsp">Desativadas</a>
         </div>
       </li>
 	    
@@ -62,7 +51,6 @@ build
 </i>Lista de Clientes<span class="sr-only">(Página atual)</span></a>
       </li>
 	    
-	
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="material-icons">
@@ -77,7 +65,37 @@ library_add
     </ul>
   </div>
 </nav>
+<br>
 
-	
+	<h4><i class="material-icons text-info">
+table_chart</i>Seguros Cadastrados</h4>
+<form action="sistema?logica=DesativarSeguro" method="post">
+	<table class="table table-striped">
+		<tr>
+			<td>Identificação</td>
+			<td>Nome</td>
+			<td><i class="material-icons">
+filter_9_plus
+</i>Número</td>
+			<td><i class="material-icons">
+monetization_on
+</i>Valor</td>
+<td><i class="material-icons">
+cancel_presentation
+</i></td>
+		</tr>
+		<%
+			List<Seguro> seguros = (List<Seguro>) request.getAttribute("lista");
+			for (Seguro c : seguros) {
+				out.println("<tr>");
+				out.println("<td>" + c.getIdSeguro() + "</td>");
+				out.println("<td>" + c.getNome() + "</td>");
+				out.println("<td>" + c.getNumero() + "</td>");
+				out.println("<td>" + c.getValor() + "</td>");
+				out.println("<td><button type='submit' value='" + c.getIdSeguro() + "' name='idSeguro' class='btn btn-danger'>Desativar</button></td>");
+				out.println("</tr>");
+			}
+		%>
+	</table></form>
 </body>
 </html>
