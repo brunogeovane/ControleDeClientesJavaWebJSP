@@ -69,7 +69,9 @@ library_add
 
 	<h4><i class="material-icons text-info">
 table_chart</i>Contas Desativadas</h4>
-	<table class="table table-striped">
+<form action="sistema?logica=AtivarConta" method="post">
+
+	<table class="table table-danger">
 		<tr>
 			<td>Identificação</td>
 			<td>Tipo</td>
@@ -94,10 +96,10 @@ cancel_presentation
 				out.println("<td>" + c.getNome() + "</td>");
 				out.println("<td>" + c.getNumero() + "</td>");
 				out.println("<td>" + c.getSaldo() + "</td>");
-				out.println("<td><a type='button' class='btn btn-primary'>Ativar</button></td>");
+				out.println("<td><button type='submit' value='" + c.getIdConta() + "' name='idConta' class='btn btn-primary'>Ativar</button></td>");
 				out.println("</tr>");
 			}
 		%>
-	</table>
+	</table></form>
 </body>
 </html>

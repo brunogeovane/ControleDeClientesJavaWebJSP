@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 import br.com.brunogeovane.controleclientes.dao.ContaDao;
 import br.com.brunogeovane.controleclientes.model.Conta;
 
-public class DesativarConta implements Logica {
-
+public class AtivarConta implements Logica {
+	
 	@Override
 	public String executa(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
        int idConta = Integer.parseInt(req.getParameter("idConta"));
@@ -19,9 +19,10 @@ public class DesativarConta implements Logica {
 		Conta conta = new Conta();
 		conta.setIdConta(idConta);
 		
-		new ContaDao().desativarConta(conta);
+		new ContaDao().ativarConta(conta);
 
-		return "/sistema?logica=ListarContasDesativadas";
+		return "/sistema?logica=ListarContas";
 	}
+
 
 }
