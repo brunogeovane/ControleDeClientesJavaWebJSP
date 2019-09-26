@@ -37,9 +37,22 @@ scatter_plot
 </i>Conta
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="desativadas.jsp">Controle</a>
+          <a class="dropdown-item" href="sistema?logica=ListarContas">Controle</a>
           <a class="dropdown-item" href="FormConta.jsp">Criar Conta</a>
-          <a class="dropdown-item" href="desativadas.jsp">Desativadas</a>
+          <a class="dropdown-item" href="sistema?logica=ListarContasDesativadas">Desativadas</a>
+        </div>
+      </li>
+      
+        <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="material-icons">
+scatter_plot
+</i>Seguro
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="sistema?logica=ListarSeguros">Controle</a>
+          <a class="dropdown-item" href="FormSeguro.jsp">Criar Conta</a>
+          <a class="dropdown-item" href="sistema?logica=ListarSegurosDesativadas">Desativadas</a>
         </div>
       </li>
 	    
@@ -63,7 +76,7 @@ library_add
       </li>
     </ul>
   </div>
-</nav>
+</nav><br>
 
 
 <form action="sistema?logica=CadastrarClienteFisico" method="post">
