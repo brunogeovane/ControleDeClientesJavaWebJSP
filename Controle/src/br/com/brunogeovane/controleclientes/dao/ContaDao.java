@@ -39,7 +39,6 @@ public class ContaDao {
 	public List<Conta> listarContas() {
 		ArrayList<Conta> resultadoConsulta = new ArrayList<Conta>();
 		String sql = "SELECT * FROM Conta where situacao = 1";
-		String sql1 = "SELECT * FROM Conta where situacao = 666";
 		try {
 			stmt = conexao.prepareStatement(sql);
 			ResultSet rs = stmt.executeQuery();
@@ -48,13 +47,16 @@ public class ContaDao {
 				Conta conta = new Conta (rs.getInt("idConta"), rs.getInt("numero"), rs.getInt("saldo"), rs.getInt("idCliente"), rs.getInt("tipoConta"));
 				resultadoConsulta.add(conta);
 			}
-			stmt = conexao.prepareStatement(sql1);
-			ResultSet rs1 = stmt.executeQuery();
+		//	int a = rs.getInt("idCliente");
+		//	int b = rs.getInt("tipoCliente");
+		//	String sql1 = "SELECT nome ClienteFisico FROM ClienteFisico UNION SELECT nome ClienteJuridico FROM ClienteJuridico where idCliente = a and tipoCliente = b ";
+		//	stmt = conexao.prepareStatement(sql1);
+	//		ResultSet rs1 = stmt.executeQuery();
 			
-			while (rs1.next()) {
-				Conta conta = new Conta (rs1.getInt("idConta"), rs1.getInt("numero"),rs1.getInt("saldo"), rs1.getInt("idCliente"), rs1.getInt("tipoConta"));
-				resultadoConsulta.add(conta);
-			}
+		//	while (rs1.next()) {
+		//		Conta conta = new Conta (rs1.getString("nome"));
+		//		resultadoConsulta.add(conta);
+		//	}
 			stmt.close();
 			return resultadoConsulta;
 		} catch (Exception e) {
@@ -92,7 +94,7 @@ public class ContaDao {
 			ResultSet rs1 = stmt.executeQuery();
 			
 			while (rs1.next()) {
-				Conta conta = new Conta (rs1.getInt("idConta"), rs1.getInt("numero"),rs1.getInt("saldo"), rs1.getInt("idCliente"), rs1.getInt("tipoConta"));
+				Conta conta = new Conta (rs.getInt("idConta"), rs.getInt("numero"), rs.getInt("saldo"), rs.getInt("idCliente"), rs.getInt("tipoConta"));
 				resultadoConsulta.add(conta);
 			}
 			stmt.close();

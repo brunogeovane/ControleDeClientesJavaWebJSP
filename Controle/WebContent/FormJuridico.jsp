@@ -46,13 +46,13 @@ scatter_plot
         <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="material-icons">
-scatter_plot
+donut_small
 </i>Seguro
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item" href="sistema?logica=ListarSeguros">Controle</a>
-          <a class="dropdown-item" href="FormSeguro.jsp">Criar Conta</a>
-          <a class="dropdown-item" href="sistema?logica=ListarSegurosDesativadas">Desativadas</a>
+          <a class="dropdown-item" href="FormSeguro.jsp">Criar Seguro</a>
+          <a class="dropdown-item" href="sistema?logica=ListarSegurosDesativados">Desativadas</a>
         </div>
       </li>
 	    
@@ -77,7 +77,6 @@ library_add
     </ul>
   </div>
 </nav>
-
 
 <form action="sistema?logica=CadastrarClienteJuridico" method="post">
   <div class="form-group row">

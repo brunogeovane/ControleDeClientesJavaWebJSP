@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.brunogeovane.controleclientes.conexao.Conexao;
-import br.com.brunogeovane.controleclientes.model.Conta;
 import br.com.brunogeovane.controleclientes.model.Seguro;
 
 public class SeguroDao {

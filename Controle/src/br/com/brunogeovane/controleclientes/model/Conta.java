@@ -14,15 +14,19 @@ public class Conta {
 		 //criado para listar
 	this.idCliente = idCliente;
     this.idConta = idConta;
-	this.tipoCliente = tipoCliente;
 	this.tipoConta = tipoConta;
 	this.numero = numero;
 	this.saldo = saldo;
-			}
-	public Conta() {
-		// criado pro inserts da conta
+	
+	}
+	public Conta(String nome) {
+		 //criado para listar
+	this.nome = nome;
 	}
 
+	public Conta() {
+		// TODO Auto-generated constructor stub
+	}
 	public int getTipoConta() {
 		return tipoConta;
 	}
@@ -72,11 +76,6 @@ public class Conta {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-
-
-	
-	
-
 	
 	
 }
