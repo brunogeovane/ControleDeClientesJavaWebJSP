@@ -119,6 +119,23 @@ public class ContaDao {
 		}
 		
 	}
+
+	public void depositarConta(Conta conta) {
+		// TODO Auto-generated method stub
+		String sql = "UPDATE Conta SET saldo = ? WHERE numero = ?";
+		try {
+			int saldo = conta.getSaldo();
+			int resultado = saldo + conta.getValor();
+			stmt = conexao.prepareStatement(sql);
+			stmt.setInt(1, resultado);
+			stmt.setInt(2, conta.getNumero());
+			stmt.execute();
+			stmt.close();
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+		
+	}
 	
 
 	}

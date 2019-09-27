@@ -82,13 +82,11 @@ library_add
 <br>
 
 	<h4><i class="material-icons text-info">
-table_chart</i>Contas Cadastradas</h4>
-<form action="sistema?logica=DesativarConta" method="post">
+table_chart</i>Depositar</h4>
+<form action="sistema?logica=DepositarValor" method="post">
 	<table class="table table-striped">
 		<tr>
-			<td>Identificação</td>
-			<td>Tipo</td>
-			<td>Nome</td>
+		
 			<td><i class="material-icons">
 filter_9_plus
 </i>Número</td>
@@ -97,26 +95,22 @@ monetization_on
 </i>Saldo</td>
 			<td><i class="material-icons">
 compare_arrows
-</i></td>
+</i>Valor para Depositar</td>
 <td><i class="material-icons">
 compare_arrows
 </i></td>
-<td><i class="material-icons">
-cancel_presentation
-</i></td>
+
 		</tr>
 		<%
 			List<Conta> contas = (List<Conta>) request.getAttribute("lista");
 			for (Conta c : contas) {
 				out.println("<tr>");
-				out.println("<td>" + c.getIdConta() + "</td>");
-				out.println("<td>" + c.getTipoConta() + "</td>");
-				out.println("<td>" + c.getNome() + "</td>");
 				out.println("<td>" + c.getNumero() + "</td>");
 				out.println("<td>" + c.getSaldo() + "</td>");
-				out.println("<td><button type='button' class='btn btn-primary'>Sacar</button></td>");
-				out.println("<td><a href='sistema?logica=ListarDepositar' class='btn btn-primary'>Depositar</a></td>");
-				out.println("<td><button type='submit' value='" + c.getIdConta() + "' name='idConta' class='btn btn-danger'>Desativar</button></td>");
+				out.println("<td><input type='text' name='valor'><br></td>");
+				out.println("<td><input type='radio' value='" + c.getSaldo() + "' name='saldo'><br></td>");
+				out.println("<td><button type='submit' value='" + c.getNumero() + "' name='numerodaconta' class='btn btn-dark'>Depositar</button></td>");
+				
 				out.println("</tr>");
 			}
 		%>

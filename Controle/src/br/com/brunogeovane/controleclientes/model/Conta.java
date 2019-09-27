@@ -9,6 +9,7 @@ public class Conta {
 	private int saldo;
 	private int situação;
 	private String nome;
+	private int valor;
 	
 	public Conta(int idConta, int numero, int saldo, int idCliente, int tipoConta) {
 		 //criado para listar
@@ -75,6 +76,12 @@ public class Conta {
 	}
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+	public int getValor() {
+		return valor;
+	}
+	public void setValor(int valor) {
+		this.valor = valor;
 	}
 	
 	
